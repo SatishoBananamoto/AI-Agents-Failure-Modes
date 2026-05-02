@@ -29,7 +29,10 @@ def verify(req: VerifyRequest) -> VerifyResponse:
     severity_max = max((violation.severity for violation in violations), default=0)
     penalty = sum(violation.severity for violation in violations)
     score = max(0.0, 1.0 - penalty / 20.0)
-    passed = severity_max < 3 and score >= 0.8
+
+    # v0.1 is a hard-gate verifier: any violation fails the run.
+    # Severity and score still help rank fixes, but PASS means clean.
+    passed = len(violations) == 0
 
     required_fixes = [
         f"{violation.claim_id}: {violation.message}" if violation.claim_id else violation.message
