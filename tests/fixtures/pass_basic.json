@@ -1,0 +1,29 @@
+{
+  "session_id": "ICIF-AES-DEMO-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-DEMO-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding · A2 Anti-Drift\n\nClaim mapping included.\n\nΔ-info: verification=yes; structure=yes; word-budget=brief",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "text": "Factual claims require evidence mapping.",
+      "type": "factual",
+      "confidence": "high",
+      "evidence_ids": ["E1"],
+      "time_sensitive": false
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source_type": "spec",
+      "url": "internal://icif-aes/spec",
+      "as_of_date": "2026-05-02",
+      "supports_claim_ids": ["C1"]
+    }
+  ],
+  "metadata": {
+    "kc": true,
+    "requires_independent_derivation": false,
+    "model_role": "verifier"
+  }
+}
