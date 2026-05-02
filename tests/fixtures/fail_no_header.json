@@ -1,0 +1,10 @@
+{
+  "session_id": "ICIF-AES-FAIL-HEADER-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "To: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-HEADER-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nBody without packet header.\n\nΔ-info: verification=yes",
+  "claims": [],
+  "evidence": [],
+  "metadata": {
+    "model_role": "verifier"
+  }
+}
