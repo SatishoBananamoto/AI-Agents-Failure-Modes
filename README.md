@@ -1,10 +1,10 @@
 # ICIF-AES Verifier
 
-A deterministic verifier for ICIF-AES response packets, claim ledgers, evidence ledgers, and failure-mode gates.
+A deterministic verifier for ICIF-AES response packets, claim ledgers, evidence ledgers, disconfirmers, and failure-mode gates.
 
-This repository starts with a deliberately small v0.1 scope: hard protocol and epistemic checks before any LLM-judge layer.
+This repository starts with a deliberately small v0.2 scope: hard protocol and epistemic checks before any LLM-judge layer.
 
-## What v0.1 checks
+## What v0.2 checks
 
 - Required `[ICIF-AES Response Packet]` header
 - Required header fields: `To`, `From`, `Session ID`, `Conversational State`, `Anchor Points`
@@ -16,6 +16,35 @@ This repository starts with a deliberately small v0.1 scope: hard protocol and e
 - Speculation cannot be marked high confidence
 - Verifier role avoids advocacy language
 - Independent derivation marker is present when required
+- High-confidence factual/recommendation claims require a specific disconfirmer
+- Unchecked disconfirmers fail the run
+- Present disconfirmers fail the claim until revised
+- Vague, orphaned, or evidence-broken disconfirmers fail the run
+
+## Disconfirmer model
+
+Evidence asks: `Why might this be true?`
+
+A disconfirmer asks: `What concrete observation would weaken or overturn this?`
+
+Example:
+
+```json
+{
+  "disconfirmer_id": "D1",
+  "claim_id": "C1",
+  "text": "A later relevant test run fails after the claimed passing run.",
+  "check_type": "tool_result",
+  "status": "checked_absent",
+  "evidence_ids": ["E2"]
+}
+```
+
+Allowed statuses:
+
+- `checked_absent`: the disconfirming condition was checked and not found
+- `checked_present`: the disconfirming condition was found, so the claim fails
+- `not_checked`: the disconfirming condition exists but was not checked, so the run fails
 
 ## API
 
