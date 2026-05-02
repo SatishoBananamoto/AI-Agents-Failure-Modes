@@ -1,0 +1,27 @@
+{
+  "session_id": "ICIF-AES-FAIL-FM4-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-FM4-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nTime-sensitive claim mapping included.\n\nΔ-info: verification=yes",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "text": "This current-status claim is time-sensitive but has no claim-level date.",
+      "type": "factual",
+      "confidence": "medium",
+      "evidence_ids": ["E1"],
+      "time_sensitive": true
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source_type": "spec",
+      "url": "internal://fixture",
+      "as_of_date": "2026-05-02",
+      "supports_claim_ids": ["C1"]
+    }
+  ],
+  "metadata": {
+    "model_role": "verifier"
+  }
+}
