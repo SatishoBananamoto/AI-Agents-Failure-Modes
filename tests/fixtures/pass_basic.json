@@ -19,6 +19,23 @@
       "url": "internal://icif-aes/spec",
       "as_of_date": "2026-05-02",
       "supports_claim_ids": ["C1"]
+    },
+    {
+      "evidence_id": "E2",
+      "source_type": "tool",
+      "url": "internal://verifier/disconfirmer-check",
+      "as_of_date": "2026-05-02",
+      "supports_claim_ids": ["C1"]
+    }
+  ],
+  "disconfirmers": [
+    {
+      "disconfirmer_id": "D1",
+      "claim_id": "C1",
+      "text": "The claim would be weakened if a factual claim lacked a mapped evidence identifier.",
+      "check_type": "counterexample",
+      "status": "checked_absent",
+      "evidence_ids": ["E2"]
     }
   ],
   "metadata": {
