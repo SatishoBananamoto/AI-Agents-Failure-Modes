@@ -1,0 +1,19 @@
+{
+  "session_id": "ICIF-AES-FAIL-FM1-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-FM1-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nThis response contains an unsupported factual claim.\n\nΔ-info: verification=yes",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "text": "This is a factual claim without evidence.",
+      "type": "factual",
+      "confidence": "medium",
+      "evidence_ids": [],
+      "time_sensitive": false
+    }
+  ],
+  "evidence": [],
+  "metadata": {
+    "model_role": "verifier"
+  }
+}
