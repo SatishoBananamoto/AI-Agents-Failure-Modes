@@ -48,3 +48,15 @@ def test_fail_independent_derivation_required():
     result = verify(load_fixture("fail_independent_derivation.json"))
     assert result.pass_ is False
     assert any(v.rule_id == "FM13" for v in result.violations)
+
+
+def test_fail_missing_disconfirmer():
+    result = verify(load_fixture("fail_disconfirmer_missing.json"))
+    assert result.pass_ is False
+    assert any(v.rule_id == "DISCONFIRMER_REQUIRED" for v in result.violations)
+
+
+def test_fail_unchecked_disconfirmer():
+    result = verify(load_fixture("fail_disconfirmer_unchecked.json"))
+    assert result.pass_ is False
+    assert any(v.rule_id == "DISCONFIRMER_UNCHECKED" for v in result.violations)
