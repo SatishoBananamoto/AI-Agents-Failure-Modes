@@ -1,0 +1,28 @@
+{
+  "session_id": "ICIF-AES-FAIL-DISC-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-DISC-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nHigh-confidence factual claim has support but no disconfirmer.\n\nΔ-info: verification=yes",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "text": "All relevant tests passed for this verifier revision.",
+      "type": "factual",
+      "confidence": "high",
+      "evidence_ids": ["E1"],
+      "time_sensitive": false
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source_type": "tool",
+      "url": "internal://fixture/test-run",
+      "as_of_date": "2026-05-02",
+      "supports_claim_ids": ["C1"]
+    }
+  ],
+  "disconfirmers": [],
+  "metadata": {
+    "model_role": "verifier"
+  }
+}
