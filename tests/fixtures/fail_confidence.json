@@ -1,0 +1,19 @@
+{
+  "session_id": "ICIF-AES-FAIL-FM6-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-FM6-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nHigh confidence claim has no evidence.\n\nΔ-info: verification=yes",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "text": "This high-confidence claim has no support.",
+      "type": "interpretive",
+      "confidence": "high",
+      "evidence_ids": [],
+      "time_sensitive": false
+    }
+  ],
+  "evidence": [],
+  "metadata": {
+    "model_role": "verifier"
+  }
+}
