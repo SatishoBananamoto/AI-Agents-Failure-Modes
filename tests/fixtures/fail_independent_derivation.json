@@ -1,0 +1,11 @@
+{
+  "session_id": "ICIF-AES-FAIL-FM13-001",
+  "as_of_date": "2026-05-02",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-FAIL-FM13-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nFrame-heavy response without a derivation marker.\n\nΔ-info: verification=yes",
+  "claims": [],
+  "evidence": [],
+  "metadata": {
+    "model_role": "verifier",
+    "requires_independent_derivation": true
+  }
+}
