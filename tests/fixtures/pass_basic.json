@@ -1,7 +1,7 @@
 {
   "session_id": "ICIF-AES-DEMO-001",
   "as_of_date": "2026-05-02",
-  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-DEMO-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding · A2 Anti-Drift\n\nClaim mapping included.\n\nΔ-info: verification=yes; structure=yes; word-budget=brief",
+  "response_text": "[ICIF-AES Response Packet]\nTo: Claude\nFrom: Kai\nSession ID: ICIF-AES-DEMO-001\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding · A2 Anti-Drift\n\nFactual claims require evidence mapping.\n\nΔ-info: verification=yes; structure=yes; word-budget=brief",
   "claims": [
     {
       "claim_id": "C1",
@@ -17,6 +17,7 @@
       "evidence_id": "E1",
       "source_type": "spec",
       "url": "internal://icif-aes/spec",
+      "quote": "Factual claims require evidence mapping.",
       "as_of_date": "2026-05-02",
       "supports_claim_ids": ["C1"]
     },
@@ -24,6 +25,7 @@
       "evidence_id": "E2",
       "source_type": "tool",
       "url": "internal://verifier/disconfirmer-check",
+      "quote": "No factual claim lacked a mapped evidence identifier in this fixture.",
       "as_of_date": "2026-05-02",
       "supports_claim_ids": ["C1"]
     }
