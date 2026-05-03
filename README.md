@@ -1,25 +1,50 @@
 # ICIF-AES Verifier
 
-A deterministic verifier for ICIF-AES response packets, claim ledgers, evidence ledgers, disconfirmers, and failure-mode gates.
+A deterministic verifier for ICIF-AES response packets, claim ledgers, evidence ledgers, disconfirmers, ledger integrity, and failure-mode gates.
 
-This repository starts with a deliberately small v0.2 scope: hard protocol and epistemic checks before any LLM-judge layer.
+This repository starts with a deliberately small v0.3 scope: hard protocol and epistemic checks before any LLM-judge layer.
 
-## What v0.2 checks
+## What v0.3 checks
 
 - Required `[ICIF-AES Response Packet]` header
 - Required header fields: `To`, `From`, `Session ID`, `Conversational State`, `Anchor Points`
 - Required `Δ-info` footer
 - Factual claims mapped to evidence IDs
 - Evidence IDs exist in the evidence ledger
+- Claim-supporting evidence includes a concrete `quote` / snippet
+- Claim-supporting evidence has a source locator (`url`)
+- Weak/self-attested evidence types fail when used as claim support
 - Time-sensitive claims include an `as_of_date`
 - High-confidence claims have support
 - Speculation cannot be marked high confidence
+- Factual/verification language cannot be hidden as `speculation`
 - Verifier role avoids advocacy language
 - Independent derivation marker is present when required
 - High-confidence factual/recommendation claims require a specific disconfirmer
 - Unchecked disconfirmers fail the run
 - Present disconfirmers fail the claim until revised
 - Vague, orphaned, or evidence-broken disconfirmers fail the run
+- Response-level assertive claims such as `tests passed`, `secure`, `verified`, or `no secrets leaked` must appear in the claim ledger
+- Ledger claims must be sufficiently grounded in `response_text`
+
+## Ledger integrity model
+
+The verifier treats the JSON ledger as untrusted input.
+
+The LLM may propose claims, evidence, and disconfirmers, but the verifier checks whether the ledger is structurally consistent with the raw response and auditable evidence snippets.
+
+Example evidence object:
+
+```json
+{
+  "evidence_id": "E1",
+  "source_type": "tool",
+  "url": "internal://test-run",
+  "quote": "All relevant tests passed.",
+  "as_of_date": "2026-05-02",
+  "supports_claim_ids": ["C1"]
+}
+```
 
 ## Disconfirmer model
 
