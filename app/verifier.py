@@ -4,6 +4,7 @@ from app.rules.confidence import check_confidence
 from app.rules.contamination import check_independent_derivation
 from app.rules.disconfirmers import check_disconfirmers
 from app.rules.evidence import check_evidence
+from app.rules.ledger_integrity import check_ledger_integrity
 from app.rules.protocol import check_protocol
 from app.rules.role_boundary import check_role_boundary
 from app.rules.temporal import check_temporal_grounding
@@ -18,6 +19,7 @@ RULES = [
     check_role_boundary,
     check_independent_derivation,
     check_disconfirmers,
+    check_ledger_integrity,
 ]
 
 
@@ -32,7 +34,7 @@ def verify(req: VerifyRequest) -> VerifyResponse:
     penalty = sum(violation.severity for violation in violations)
     score = max(0.0, 1.0 - penalty / 20.0)
 
-    # v0.2 is a hard-gate verifier: any violation fails the run.
+    # v0.3 is a hard-gate verifier: any violation fails the run.
     # Severity and score still help rank fixes, but PASS means clean.
     passed = len(violations) == 0
 
