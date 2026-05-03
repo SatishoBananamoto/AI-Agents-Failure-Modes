@@ -1,4 +1,4 @@
-"""Pydantic schemas for ICIF-AES verifier v0.2."""
+"""Pydantic schemas for ICIF-AES verifier v0.3."""
 
 from __future__ import annotations
 
@@ -34,6 +34,7 @@ class Evidence(BaseModel):
     evidence_id: str
     source_type: SourceType = "unknown"
     url: str | None = None
+    quote: str | None = None
     as_of_date: str | None = None
     supports_claim_ids: list[str] = Field(default_factory=list)
 
