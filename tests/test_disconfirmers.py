@@ -7,7 +7,7 @@ from app.verifier import verify
 BASE = {
     "session_id": "ICIF-AES-DISC-TEST",
     "as_of_date": "2026-05-02",
-    "response_text": "[ICIF-AES Response Packet]\nTo: A\nFrom: B\nSession ID: ICIF-AES-DISC-TEST\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nBody.\n\nΔ-info: verification=yes",
+    "response_text": "[ICIF-AES Response Packet]\nTo: A\nFrom: B\nSession ID: ICIF-AES-DISC-TEST\nConversational State: TEST\nAnchor Points: A1 Empirical Grounding\n\nAll relevant tests passed.\n\nΔ-info: verification=yes",
     "claims": [
         {
             "claim_id": "C1",
@@ -23,6 +23,7 @@ BASE = {
             "evidence_id": "E1",
             "source_type": "tool",
             "url": "internal://test-run",
+            "quote": "All relevant tests passed.",
             "as_of_date": "2026-05-02",
             "supports_claim_ids": ["C1"],
         },
@@ -30,6 +31,7 @@ BASE = {
             "evidence_id": "E2",
             "source_type": "tool",
             "url": "internal://disconfirmer-check",
+            "quote": "No later relevant failing test run was found in this fixture.",
             "as_of_date": "2026-05-02",
             "supports_claim_ids": ["C1"],
         },
