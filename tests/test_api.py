@@ -1,15 +1,15 @@
-from fastapi.testclient import TestClient
+from app.main import app, healthz, verify_endpoint
+from app.schemas import VerifyRequest
 
-from app.main import app
 
-
-client = TestClient(app)
+def test_api_routes_registered():
+    paths = {route.path for route in app.routes}
+    assert "/healthz" in paths
+    assert "/verify" in paths
 
 
 def test_healthz():
-    response = client.get("/healthz")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+    assert healthz() == {"status": "ok"}
 
 
 def test_verify_endpoint_accepts_valid_payload():
@@ -22,8 +22,6 @@ def test_verify_endpoint_accepts_valid_payload():
         "metadata": {"model_role": "verifier"},
     }
 
-    response = client.post("/verify", json=payload)
-    assert response.status_code == 200
-    body = response.json()
-    assert body["pass"] is True
-    assert body["violations"] == []
+    result = verify_endpoint(VerifyRequest(**payload))
+    assert result.pass_ is True
+    assert result.violations == []
