@@ -3,6 +3,8 @@
 from fastapi import FastAPI
 
 from app.schemas import VerifyRequest, VerifyResponse
+from app.session_schemas import SessionVerifyRequest, SessionVerifyResponse
+from app.session_verifier import verify_session
 from app.verifier import verify
 
 
@@ -17,3 +19,8 @@ def healthz() -> dict[str, str]:
 @app.post("/verify", response_model=VerifyResponse)
 def verify_endpoint(req: VerifyRequest) -> VerifyResponse:
     return verify(req)
+
+
+@app.post("/verify-session", response_model=SessionVerifyResponse)
+def verify_session_endpoint(req: SessionVerifyRequest) -> SessionVerifyResponse:
+    return verify_session(req)

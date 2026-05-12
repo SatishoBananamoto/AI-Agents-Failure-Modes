@@ -26,6 +26,8 @@ This repository starts with a deliberately small v0.3 scope: hard protocol and e
 - Vague, orphaned, or evidence-broken disconfirmers fail the run
 - Response-level assertive claims such as `tests passed`, `secure`, `verified`, or `no secrets leaked` must appear in the claim ledger
 - Ledger claims must be sufficiently grounded in `response_text`
+- Raw-session final claims such as `tests passed` or `build passed` must match the latest relevant tool result
+- Raw-session security claims such as `no secrets leaked` require a matching security scan/tool result
 
 ## Ledger integrity model
 
@@ -83,10 +85,24 @@ curl -X POST http://127.0.0.1:8000/verify \
   --data @tests/fixtures/pass_basic.json
 ```
 
+Raw session consistency checks are also available:
+
+```bash
+curl -X POST http://127.0.0.1:8000/verify-session \
+  -H 'content-type: application/json' \
+  --data @session.json
+```
+
 ## CLI
 
 ```bash
 python -m app.cli tests/fixtures/pass_basic.json
+```
+
+The CLI also auto-detects raw session payloads with a `messages` list:
+
+```bash
+python -m app.cli session.json
 ```
 
 The CLI exits `0` on PASS and `1` on FAIL, so it can be used in CI or agent hooks.
